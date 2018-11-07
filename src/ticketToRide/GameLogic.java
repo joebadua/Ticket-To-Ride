@@ -7,10 +7,11 @@ import java.util.Iterator;
 // Vast majority of functionality is going to go here. All rules for turns and all of game setup
 public class GameLogic {
 
-	public final int MAX_SCORE = 15;
-	public final int MIN_CAR_COUNT = 2;
-	public Player player1, player2;
-	public GameBoard board;
+	private final int MAX_SCORE = 15;
+	private final int MIN_CAR_COUNT = 2;
+	private Player player1, player2;
+	private GameBoard board;
+	private Deck discardPile = new Deck();
 
 	public GameLogic() {
 		board = new GameBoard();
@@ -99,12 +100,13 @@ public class GameLogic {
 		Route route = routes.getRoute(city1, city2);
 
 		List<TrainCarCard> player_hand = player.getTcHand();
-		System.out.println(player_hand);
 
 		for(int i = 0; i < player_hand.size(); i++) {
-			if(player_hand.get(i).getColor().equals(route.getRouteColor()))
-				num_of_cards++;
-		}
+            if (player_hand.get(i).getColor().equals(route.getRouteColor())) {
+                num_of_cards++;
+                discardPile.discard(player_hand.get(i));
+            }
+        }
 
 		if ( num_of_cards == route.getRouteLength() ) {
 			return true;
@@ -119,9 +121,7 @@ public class GameLogic {
 		List<TrainCarCard> player_hand = player.getTcHand();
 
 		for(Iterator<TrainCarCard> i = player_hand.iterator(); i.hasNext(); ) {
-
 			TrainCarCard a = i.next();
-
 			if(a.getColor().equals(route.getRouteColor()))
 				i.remove();
 		}
