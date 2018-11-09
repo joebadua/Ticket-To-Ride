@@ -17,6 +17,16 @@ public class DestCard implements Card{
 		this.origin = "null";
 		this.value = 0;
 	}
+
+	/**
+     * Constructs a card that contains a destination
+	 * @param dest - destination city
+	 */
+	public DestCard(String dest) {
+		this.dest = dest;
+		this.origin = "null";
+		this.value = 0;
+	}
 	/**
 	 * Constructs a card containing a destination city, origin city, and point value
 	 * @param String dest - destination city

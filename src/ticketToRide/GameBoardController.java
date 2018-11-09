@@ -21,7 +21,7 @@ public class GameBoardController {
     private String city1 = "";
     private String city2 = "";
     private StringBuilder builder = new StringBuilder();
-    private boolean routeClaimed = false;
+    private boolean routeClaimed1 = false, routeClaimed2 = false, routeClaimed3 = false, routeClaimed4 = false;
 
     @FXML
     private Button SF;
@@ -139,28 +139,28 @@ public class GameBoardController {
             choosing two destinations already, nothing will happen.
          */
             if (city1.isEmpty() || city2.isEmpty()) {
-                if (pressed.equals(SF)) {
+                if ( pressed.equals(SF) && (!city1.equals("SF") && !city2.equals("SF")) ) {
                     SF.setStyle("-fx-background-color: #7CFC00");
                     if (city1.isEmpty()) {
                         city1 = SF.getText();
                     } else {
                         city2 = SF.getText();
                     }
-                } else if (pressed.equals(LA)) {
+                } else if ( pressed.equals(LA) && (!city1.equals("LA") && !city2.equals("LA")) ) {
                     LA.setStyle("-fx-background-color: #7CFC00");
                     if (city1.isEmpty()) {
                         city1 = LA.getText();
                     } else {
                         city2 = LA.getText();
                     }
-                } else if (pressed.equals(SD)) {
+                } else if ( pressed.equals(SD) && (!city1.equals("SD") && !city2.equals("SD")) ) {
                     SD.setStyle("-fx-background-color: #7CFC00");
                     if (city1.isEmpty()) {
                         city1 = SD.getText();
                     } else {
                         city2 = SD.getText();
                     }
-                } else if (pressed.equals(LV)) {
+                } else if ( pressed.equals(LV) && (!city1.equals("LV") && !city2.equals("LV")) ) {
                     LV.setStyle("-fx-background-color: #7CFC00");
                     if (city1.isEmpty()) {
                         city1 = LV.getText();
@@ -168,6 +168,8 @@ public class GameBoardController {
                         city2 = LV.getText();
                     }
                 }
+                System.out.println(city1);
+                System.out.println(city2);
             }
         }
 
@@ -180,28 +182,28 @@ public class GameBoardController {
 
                 gameLogic.discPlayerHand(currentPlayer, board, city1, city2);
                 if ((city1.equals("SF") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SF")))) {
-                    if (!routeClaimed) {
-                        routeClaimed = true;
+                    if (!routeClaimed1) {
+                        routeClaimed1 = true;
                         SFtoLA1.setFill(currentPlayer.getPlayerColor());
                         SFtoLA2.setFill(currentPlayer.getPlayerColor());
                         SFtoLA3.setFill(currentPlayer.getPlayerColor());
                     }
                 } else if ((city1.equals("SF") && city2.equals("LV")) || ((city1.equals("LV") && city2.equals("SF")))) {
-                    if (!routeClaimed) {
-                        routeClaimed = true;
+                    if (!routeClaimed2) {
+                        routeClaimed2 = true;
                         SFtoLV1.setFill(currentPlayer.getPlayerColor());
                         SFtoLV2.setFill(currentPlayer.getPlayerColor());
                         SFtoLV3.setFill(currentPlayer.getPlayerColor());
                     }
                 } else if ((city1.equals("SD") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SD")))) {
-                    if (!routeClaimed) {
-                        routeClaimed = true;
+                    if (!routeClaimed3) {
+                        routeClaimed3 = true;
                         LAtoSD1.setFill(currentPlayer.getPlayerColor());
                         LAtoSD2.setFill(currentPlayer.getPlayerColor());
                     }
                 } else if ((city1.equals("SD") && city2.equals("LV")) || ((city1.equals("LV") && city2.equals("SD")))) {
-                    if (!routeClaimed) {
-                        routeClaimed = true;
+                    if (!routeClaimed4) {
+                        routeClaimed4 = true;
                         SDtoLV1.setFill(currentPlayer.getPlayerColor());
                         SDtoLV2.setFill(currentPlayer.getPlayerColor());
                         SDtoLV3.setFill(currentPlayer.getPlayerColor());
@@ -227,8 +229,9 @@ public class GameBoardController {
                 }
                 playerHand.setText(builder.toString());
                 player.setText("Current Player:" + currentPlayer.getColor());
-            } else {
 
+            } else {
+                System.out.println("NOT A VALID MOVE");
                 //Clear the formatting after claiming a route for the next player's turn
                 city1 = "";
                 city2 = "";

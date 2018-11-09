@@ -1,4 +1,35 @@
-SF LA 3
-LA SD 2
-SD LV 4
-SF LV 3
+SF
+LA
+SD
+LV
+SD
+SF
+LA
+SF
+LA
+SD
+LV
+SD
+SF
+LA
+SF
+LA
+SD
+LV
+SD
+SF
+LA
+SF
+LA
+SD
+LV
+SD
+SF
+LA
+SF
+LA
+SD
+LV
+SD
+SF
+LA

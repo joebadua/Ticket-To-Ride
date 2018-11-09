@@ -102,14 +102,12 @@ public class GameLogic {
 		for(int i = 0; i < player_hand.size(); i++) {
             if (player_hand.get(i).getColor().equals(route.getRouteColor())) {
                 num_of_cards++;
+				if ( num_of_cards == route.getRouteLength() ) {
+					return true;
+				}
                 discardPile.discard(player_hand.get(i));
             }
         }
-
-		if ( num_of_cards == route.getRouteLength() ) {
-			return true;
-		}
-
 		return false;
     }
 

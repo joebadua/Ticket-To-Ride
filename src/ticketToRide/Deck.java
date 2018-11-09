@@ -107,6 +107,8 @@ public class Deck {
 			while((s = br.readLine()) != null) {
 				if(type == 0) {
 					this.add(new TrainCarCard(s));
+				} else if(type == 1){
+					this.add(new DestCard(s));
 				}
 				else{
 					String[] arr = s.split(" ");
