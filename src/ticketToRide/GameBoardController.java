@@ -13,8 +13,8 @@ import javafx.scene.shape.Sphere;
  */
 public class GameBoardController {
 
-    private Player player1 = new Player(Color.AQUA);
-    private Player player2 = new Player(Color.PINK);
+    private Player player1 = new Player("AQUA",Color.AQUA);
+    private Player player2 = new Player("PINK",Color.PINK);
     private Player currentPlayer = player1;
     private GameBoard board = new GameBoard();
     private GameLogic gameLogic = new GameLogic();
@@ -113,6 +113,7 @@ public class GameBoardController {
             builder.append(player1.getTcHand().get(i).getColor() + " ");
         }
         playerHand.setText(builder.toString());
+        player.setText("Current Player:" + currentPlayer.getColor());
     }
 
     /*
@@ -176,8 +177,8 @@ public class GameBoardController {
          */
         if (pressed.equals(route)) {
             if (gameLogic.isValidMove(currentPlayer, board, city1, city2)) {
-                gameLogic.discPlayerHand(currentPlayer, board, city1, city2);
 
+                gameLogic.discPlayerHand(currentPlayer, board, city1, city2);
                 if ((city1.equals("SF") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SF")))) {
                     if (!routeClaimed) {
                         routeClaimed = true;
@@ -225,6 +226,16 @@ public class GameBoardController {
                     builder.append(currentPlayer.getTcHand().get(i).getColor() + " ");
                 }
                 playerHand.setText(builder.toString());
+                player.setText("Current Player:" + currentPlayer.getColor());
+            } else {
+
+                //Clear the formatting after claiming a route for the next player's turn
+                city1 = "";
+                city2 = "";
+                SF.setStyle(null);
+                LA.setStyle(null);
+                SD.setStyle(null);
+                LV.setStyle(null);
             }
         }
 
@@ -241,6 +252,7 @@ public class GameBoardController {
                 builder.append(currentPlayer.getTcHand().get(i).getColor() + " ");
             }
             playerHand.setText(builder.toString());
+            player.setText("Current Player:" + currentPlayer.getColor());
         }
 
         if (pressed.equals(destinationCard)) {
@@ -256,12 +268,14 @@ public class GameBoardController {
                 builder.append(currentPlayer.getTcHand().get(i).getColor() + " ");
             }
             playerHand.setText(builder.toString());
+            player.setText("Current Player:" + currentPlayer.getColor());
         }
 
-       //Application will close if the user's choose to quit the game
+       //Application will close if the users choose to quit the game
        if (pressed.equals(quitButton)) {
            Platform.exit();
        }
     }
+
 }
 

@@ -5,37 +5,43 @@ import java.io.*;
 /**
  * This class holds both deck and discard piles of cards. It uses LinkedList functionality to add and
  * remove cards from the deck or discard. It has a shuffle functionality and can be built using a file. a simple
- * integer flag denotes what kind of card the Deck will consist of
+ * integer flag denotes what kind of card the Deck will consist of. The LinkedList is made of a generic Card
+ * interface to allow for adaptability.
  */
 public class Deck {
 	
-	// Each deck consists of a deck and discard pile, although the discard pile is unimplemented for the Destination Cards
-	// for them, if I'm remembering the rules correctly, they're discarded to the bottom of the deck. So maybe a little if
-	// statement checking the card type (instanceof) to determine the proper outcome -KT
 	private LinkedList<Card> deck;
 	private LinkedList<Card> discard;
 	
-	// Default Constructor
+	/**
+     * Constructs Deck with two empty LinkedList of type Card
+     */
 	public Deck() {
 		deck = new LinkedList<Card>();
 		discard = new LinkedList<Card>();
 	}
-
-	// This constructor takes a filename and flag indicating what kind of Card is filling the deck
+    /**
+     * Constructs Deck with two empty LinkedList of type Card, calls buildDeck using
+     * parameters to fill deck
+     * @param String filename with Card data
+     * @param int flag indicating what kind of Card is to be created
+     */
 	public Deck(String filename, int flag){
 		deck = new LinkedList<Card>();
 		discard = new LinkedList<Card>();
 		buildDeck(filename,flag);
 	}
-
     /**
 	 * Get fuction for deck portion of Deck.
-	 * @return list of cards in the deck
+	 * @return list of cards in  deck
 	 */
 	public LinkedList<Card> getDeck(){
-		return this.deck;
+	    return this.deck;
 	}
-	
+	/**
+     * Get function for discard portion of Deck.
+     * @return list of cards in discard
+     */
 	public LinkedList<Card> getDiscard(){
 		return this.discard;
 	}
@@ -46,21 +52,21 @@ public class Deck {
      * @param Card to be added to the deck pile
      */
 	public void add(Card card) {
-		deck.add(card);
+	    deck.add(card);
 	}
 	/**
      * The discard() method takes a Card from the player and adds it to the top of the discard pile
      * @param Card sent from player
      */
 	public void discard(Card card) {
-		discard.add(card);
+	    discard.add(card);
 	}
 	/**
      * The method draw() removes the first Card from the deck LinkedList and returns it
      * @return Card on top of deck pile
      */
 	public Card draw() {
-		return deck.pop();
+	    return deck.pop();
 	}
 	/**
      * The method pull() removes the top card from the discard pile and return the Card object.
@@ -68,16 +74,15 @@ public class Deck {
      * @return Card on top of discard pile
      */
 	public Card pull() {
-		return discard.pop();
+	    return discard.pop();
 	}
 	/**
      * Shuffle calls Collections.shuffle to randomly rearrange the Cards within
      * their LinkedList deck
      */
 	public void shuffle() {
-		Collections.shuffle(deck);
+	    Collections.shuffle(deck);
 	}
-
 	/**
      * canShuffle ensures that there are at least 2 card available to shuffle
      * @return true if there are at least 2 cards in the deck
