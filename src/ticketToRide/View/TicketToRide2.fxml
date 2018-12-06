@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUIController">
+   <bottom>
+      <Pane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator layoutX="-3.0" layoutY="-8.0" prefHeight="25.0" prefWidth="1500.0" />
+            <SplitPane dividerPositions="0.7002670226969292" layoutX="-1.0" layoutY="9.0" prefHeight="190.0" prefWidth="1500.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="188.0" prefWidth="643.0">
+                     <effect>
+                        <InnerShadow blurType="ONE_PASS_BOX" />
+                     </effect>
+                     <children>
+                        <TextArea fx:id="playerHand" editable="false" layoutX="2.0" layoutY="-4.0" prefHeight="200.0" prefWidth="1050.0" wrapText="true">
+                           <font>
+                              <Font size="18.0" />
+                           </font></TextArea>
+                     </children>
+                  </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="188.0" prefWidth="671.0">
+                     <children>
+                        <Button fx:id="route" layoutX="10.0" layoutY="65.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="50.0" prefWidth="135.0" text="Claim Route" />
+                        <Button fx:id="trainCard" layoutX="159.0" layoutY="65.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="50.0" prefWidth="135.0" text="Draw Train Card" textAlignment="CENTER" wrapText="true" />
+                        <Button fx:id="destinationCard" layoutX="305.0" layoutY="65.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="50.0" prefWidth="135.0" text="Draw Destination Card" textAlignment="CENTER" wrapText="true" />
+                        <Button fx:id="quitButton" layoutX="189.0" layoutY="121.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="50.0" prefWidth="75.0" style="-fx-background-color: #ff1e1e#ff1e1e;" text="QUIT" />
+                        <Label fx:id="player" alignment="CENTER" layoutX="27.0" layoutY="6.0" prefHeight="55.0" prefWidth="250.0" text="Current player:">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+              </items>
+            </SplitPane>
+         </children></Pane>
+   </bottom>
+   <center>
+      <SplitPane dividerPositions="0.8057409879839786" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1200.0">
+               <children>
+                  <ImageView fitHeight="800.0" fitWidth="1200.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@imgs/TicketToRideEastCoast.jpg" />
+                     </image>
+                  </ImageView>
+                  <RadioButton fx:id="Warren" layoutX="310.0" layoutY="249.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Erie" layoutX="163.0" layoutY="185.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Buffalo" layoutX="390.0" layoutY="55.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="OilCity" layoutX="221.0" layoutY="341.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="YoungsTown" layoutX="60.0" layoutY="377.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Dubois" layoutX="378.0" layoutY="408.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Pittsburg" layoutX="168.0" layoutY="548.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Wheeling" layoutX="68.0" layoutY="625.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="MorganTown" layoutX="184.0" layoutY="734.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Johstown" layoutX="372.0" layoutY="569.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Altoona" layoutX="438.0" layoutY="523.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Lewiston" layoutX="576.0" layoutY="510.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Cumberland" layoutX="441.0" layoutY="727.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Chambersburg" layoutX="556.0" layoutY="651.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Harrisburg" layoutX="687.0" layoutY="573.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Gettysburg" layoutX="636.0" layoutY="680.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="York" layoutX="718.0" layoutY="649.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Baltimore" layoutX="797.0" layoutY="730.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Lancaster" layoutX="791.0" layoutY="629.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Reading" layoutX="812.0" layoutY="555.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Philadelphia" layoutX="996.0" layoutY="657.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Allentown" layoutX="918.0" layoutY="508.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Stroudsburg" layoutX="1001.0" layoutY="428.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="NewYork" layoutX="1134.0" layoutY="383.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="AtlanticCity" layoutX="1129.0" layoutY="673.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Albany" layoutX="1134.0" layoutY="87.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Scranton" layoutX="897.0" layoutY="344.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Williamsport" layoutX="662.0" layoutY="376.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Towanda" layoutX="761.0" layoutY="268.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Binghamton" layoutX="866.0" layoutY="185.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Elmira" layoutX="690.0" layoutY="188.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Syracuse" layoutX="842.0" layoutY="55.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Rochester" layoutX="637.0" layoutY="55.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <RadioButton fx:id="Coudersport" layoutX="505.0" layoutY="251.0" mnemonicParsing="false" onAction="#pressed" prefHeight="20.0" prefWidth="20.0" />
+                  <Rectangle fx:id="ErieToYoungstownYellow1" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="133.0" layoutY="219.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ErieToYoungstownYellow2" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="114.0" layoutY="256.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ErieToYoungstownYellow3" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="95.0" layoutY="293.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ErieToYoungstownGreen1" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="146.0" layoutY="225.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ErieToYoungstownGreen2" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="127.0" layoutY="263.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ErieToYoungstownGreen3" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="108.0" layoutY="299.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ErieToYoungstownGreen4" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="89.0" layoutY="336.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="CoudersportToWilliamsport1" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="534.0" layoutY="269.0" rotate="-54.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="CoudersportToWilliamsport2" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="568.0" layoutY="292.0" rotate="-54.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="CoudersportToWilliamsport3" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="601.0" layoutY="316.0" rotate="-54.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="CoudersportToWilliamsport4" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="635.0" layoutY="340.0" rotate="-54.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BinghamtonToScranton1" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="887.0" layoutY="211.0" rotate="-10.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BinghamtonToScranton2" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="894.0" layoutY="251.0" rotate="-10.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BinghamtonToScranton3" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="901.0" layoutY="292.0" rotate="-10.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkGreen1" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="1138.0" layoutY="124.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkGreen2" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="1138.0" layoutY="166.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkGreen3" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="1138.0" layoutY="207.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkGreen4" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="1138.0" layoutY="248.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkGreen5" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="1138.0" layoutY="290.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkGreen6" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="1138.0" layoutY="332.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkBlue1" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="1123.0" layoutY="124.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkBlue2" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="1123.0" layoutY="166.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkBlue3" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="1123.0" layoutY="207.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkBlue4" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="1123.0" layoutY="248.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkBlue5" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="1123.0" layoutY="290.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AlbanyToNewYorkBlue6" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="1123.0" layoutY="332.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ReadingToAllentown1" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="884.0" layoutY="513.0" rotate="70.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ReadingToAllentown2" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="845.0" layoutY="527.0" rotate="70.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="CumberlandToChambersburg1" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="519.0" layoutY="664.0" rotate="52.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="CumberlandToChambersburg2" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="487.0" layoutY="689.0" rotate="52.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AltoonaToLewiston2" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="489.0" layoutY="495.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AltoonaToLewiston1" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="530.0" layoutY="495.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="WheelingToPittsburg1" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="131.0" layoutY="557.0" rotate="51.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="WheelingToPittsburg2" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="99.0" layoutY="583.0" rotate="51.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BuffaloToWarren1" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="388.0" layoutY="92.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BuffaloToWarren2" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="369.0" layoutY="129.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BuffaloToWarren3" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="351.0" layoutY="166.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BuffaloToWarren4" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="332.0" layoutY="203.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="RochesterToElmira1" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="633.0" layoutY="78.0" rotate="13.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="RochesterToElmira2" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="636.0" layoutY="121.0" rotate="-22.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="RochesterToElmira3" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="663.0" layoutY="157.0" rotate="-57.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="LancasterToPhillyGreen1" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="826.0" layoutY="624.0" rotate="-72.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="LancasterToPhilly2" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="867.0" layoutY="634.0" rotate="-80.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="LancasterToPhilly3" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="908.0" layoutY="639.0" rotate="-87.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="LancasterToPhilly4" arcHeight="5.0" arcWidth="5.0" fill="#89da60" height="40.0" layoutX="950.0" layoutY="640.0" rotate="-91.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BaltimoreToCumberland1" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="737.0" layoutY="725.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BaltimoreToCumberland2" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="696.0" layoutY="725.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BaltimoreToCumberland3" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="655.0" layoutY="725.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BaltimoreToCumberland4" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="614.0" layoutY="725.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BaltimoreToCumberland5" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="572.0" layoutY="725.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BaltimoreToCumberland6" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="531.0" layoutY="725.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BaltimoreToCumberland7" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="489.0" layoutY="725.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="HarrisburgToChambersburg1" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="632.0" layoutY="602.0" rotate="64.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="HarrisburgToChambersburg2" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="594.0" layoutY="620.0" rotate="64.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="AltoonaToJohnstown" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="408.0" layoutY="542.0" rotate="58.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ErieToWarren1" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="201.0" layoutY="191.0" rotate="-69.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ErieToWarren2" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="240.0" layoutY="206.0" rotate="-69.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ErieToWarren3" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="280.0" layoutY="222.0" rotate="-69.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="RochesterToSyracuseBlue1" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="679.0" layoutY="54.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="RochesterToSyracuseBlue2" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="721.0" layoutY="54.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="RochesterToSyracuseBlue3" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="762.0" layoutY="54.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="RochesterToSyracuseBlue4" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="803.0" layoutY="54.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ScrantonToAllentownBlue1" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="904.0" layoutY="377.0" rotate="4.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ScrantonToAllentownBlue2" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="905.0" layoutY="419.0" rotate="-8.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ScrantonToAllentownBlue3" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="913.0" layoutY="460.0" rotate="-16.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="YoungstownToPittsburgBlue1" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="81.0" layoutY="401.0" rotate="-25.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="YoungstownToPittsburgBlue2" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="102.0" layoutY="439.0" rotate="-33.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="YoungstownToPittsburgBlue3" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="126.0" layoutY="472.0" rotate="-39.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="YoungstownToPittsburgBlue4" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="155.0" layoutY="502.0" rotate="-45.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="WheelingToMorgantown1" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="86.0" layoutY="651.0" rotate="-27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="WheelingToMorgantown2" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="112.0" layoutY="686.0" rotate="-47.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="WheelingToMorgantown3" arcHeight="5.0" arcWidth="5.0" fill="#3a8cd0" height="40.0" layoutX="148.0" layoutY="710.0" rotate="-66.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="RochesterToSyracusePink1" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="679.0" layoutY="38.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="RochesterToSyracusePink2" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="721.0" layoutY="38.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="RochesterToSyracusePink3" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="762.0" layoutY="38.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="RochesterToSyracusePink4" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="803.0" layoutY="38.0" rotate="90.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BinghamtonToAlbany1" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="906.0" layoutY="168.0" rotate="70.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BinghamtonToAlbany2" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="945.0" layoutY="154.0" rotate="70.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BinghamtonToAlbany3" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="983.0" layoutY="140.0" rotate="70.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BinghamtonToAlbany4" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="1022.0" layoutY="126.0" rotate="70.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BinghamtonToAlbany5" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="1062.0" layoutY="111.0" rotate="70.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="BinghamtonToAlbany6" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="1101.0" layoutY="97.0" rotate="70.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="OilCityToDubois1" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="262.0" layoutY="352.0" rotate="-68.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="OilCityToDubois2" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="301.0" layoutY="367.0" rotate="-68.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="OilCityToDubois3" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="339.0" layoutY="383.0" rotate="-68.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="HarrisburgToReading1" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="735.0" layoutY="550.0" rotate="86.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="HarrisburgToReading2" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="776.0" layoutY="546.0" rotate="85.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="YorkToLancaster" arcHeight="5.0" arcWidth="5.0" fill="#ec9cf5" height="40.0" layoutX="759.0" layoutY="634.0" rotate="81.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="PittsburgToMorgantown1" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="172.0" layoutY="590.0" rotate="-5.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="PittsburgToMorgantown2" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="176.0" layoutY="631.0" rotate="-5.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="PittsburgToMorgantown3" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="179.0" layoutY="672.0" rotate="-5.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="JohnstownToAltoona" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="400.0" layoutY="529.0" rotate="58.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ReadingToLancaster" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="804.0" layoutY="581.0" rotate="17.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="HarrisburgToGettysburg1" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="670.0" layoutY="601.0" rotate="25.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="HarrisburgToGettysburg2" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="652.0" layoutY="638.0" rotate="26.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="WilliamsportToLewiston1" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="648.0" layoutY="402.0" rotate="36.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="WilliamsportToLewiston2" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="624.0" layoutY="436.0" rotate="36.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="WilliamsportToLewiston3" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="599.0" layoutY="469.0" rotate="36.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ScrantonToStroudsburg1" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="938.0" layoutY="372.0" rotate="-52.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ScrantonToStroudsburg2" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="970.0" layoutY="398.0" rotate="-52.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="SyracusToBinghamton1" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="849.0" layoutY="95.0" rotate="-9.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="SyracusToBinghamton2" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="857.0" layoutY="136.0" rotate="-9.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ElmiraToTowanda1" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="701.0" layoutY="212.0" rotate="-15.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ElmiraToTowanda2" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="728.0" layoutY="246.0" rotate="-63.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+                  <Rectangle fx:id="ErieToYoungstownYellow4" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="76.0" layoutY="329.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="798.0" prefWidth="215.0" />
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>
