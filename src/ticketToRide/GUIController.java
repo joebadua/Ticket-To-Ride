@@ -7,19 +7,26 @@ import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class GUIController {
 
-    private Player player1 = new Player("AQUA", Color.AQUA);
-    private Player player2 = new Player("PINK",Color.PINK);
+    private Player player1 = new Player("AQUA", Color.CYAN);
+    private Player player2 = new Player("PINK",Color.CRIMSON);
     private Player currentPlayer = player1;
     private GameBoard board = new GameBoard();
     private GameLogic gameLogic = new GameLogic();
     private String city1 = "";
     private String city2 = "";
+    private boolean radioButtonsDisabled = false;
     private StringBuilder builder = new StringBuilder();
-    private HashMap<String, RadioButton> destinations;
+    private HashMap<String, RadioButton> destinations = new HashMap<>();
+    private HashMap<List<String>, List<Rectangle>> routes = new HashMap<>();
 
     @FXML
     private TextArea playerHand;
@@ -457,8 +464,7 @@ public class GUIController {
     private Rectangle ElmiraToTowanda2;
 
     public void initialize(){
-        destinations = new HashMap<>();
-/*        destinations.put(Warren.getId(), Warren);
+        destinations.put(Warren.getId(), Warren);
         destinations.put(Dubois.getId(), Dubois);
         destinations.put(Pittsburg.getId(), Pittsburg);
         destinations.put(Lancaster.getId(), Lancaster);
@@ -489,28 +495,132 @@ public class GUIController {
         destinations.put(Harrisburg.getId(), Harrisburg);
         destinations.put(AtlanticCity.getId(), AtlanticCity);
         destinations.put(Allentown.getId(), Allentown);
-        destinations.put(Cumberland.getId(), Cumberland);*/
+        destinations.put(Cumberland.getId(), Cumberland);
+        destinations.put(NewYork.getId(), NewYork);
+        destinations.put(Binghamton.getId(), Binghamton);
 
+        routes.put(new ArrayList<>(Arrays.asList("Erie","Youngstown", "Yellow")), new ArrayList<>(Arrays.asList(ErieToYoungstownYellow1, ErieToYoungstownYellow2,
+                    ErieToYoungstownYellow3, ErieToYoungstownYellow4)));
+        routes.put(new ArrayList<>(Arrays.asList("Erie", "Youngstown", "Green")), new ArrayList<>(Arrays.asList(ErieToYoungstownGreen1, ErieToYoungstownGreen2, ErieToYoungstownGreen3,
+                ErieToYoungstownGreen4)));
+        routes.put(new ArrayList<>(Arrays.asList("Binghamton", "Albany")), new ArrayList<>(Arrays.asList(BinghamtonToAlbany1, BinghamtonToAlbany2, BinghamtonToAlbany3,
+                    BinghamtonToAlbany4, BinghamtonToAlbany5, BinghamtonToAlbany6)));
+        routes.put(new ArrayList<>(Arrays.asList("OilCity", "Dubois")), new ArrayList<>(Arrays.asList(OilCityToDubois1, OilCityToDubois2, OilCityToDubois3)));
+        routes.put(new ArrayList<>(Arrays.asList("Rochester", "Syracuse", "Blue")), new ArrayList<>(Arrays.asList(RochesterToSyracuseBlue1, RochesterToSyracuseBlue2,
+                    RochesterToSyracuseBlue3, RochesterToSyracuseBlue4)));
+        routes.put(new ArrayList<>(Arrays.asList("Rochester", "Syracuse", "Pink")), new ArrayList<>(Arrays.asList(RochesterToSyracusePink1, RochesterToSyracusePink2,
+                RochesterToSyracusePink3, RochesterToSyracusePink4)));
+        routes.put(new ArrayList<>(Arrays.asList("Elmira", "Towanda")), new ArrayList<>(Arrays.asList(ElmiraToTowanda1, ElmiraToTowanda2)));
+        routes.put(new ArrayList<>(Arrays.asList("Rochester", "Elmira")), new ArrayList<>(Arrays.asList(RochesterToElmira1, RochesterToElmira2, RochesterToElmira3)));
+        routes.put(new ArrayList<>(Arrays.asList("Wheeling", "Morgantown")), new ArrayList<>(Arrays.asList(WheelingToMorgantown1, WheelingToMorgantown2, WheelingToMorgantown3)));
+        routes.put(new ArrayList<>(Arrays.asList("Baltimore", "Cumberland")), new ArrayList<>(Arrays.asList(BaltimoreToCumberland1, BaltimoreToCumberland2, BaltimoreToCumberland3,
+                    BaltimoreToCumberland4, BaltimoreToCumberland5, BaltimoreToCumberland5, BaltimoreToCumberland6, BaltimoreToCumberland7)));
+
+        player1.addTCCard(new TrainCarCard("PINK"));
+        player1.addTCCard(new TrainCarCard("PINK"));
+        player1.addTCCard(new TrainCarCard("RED"));
+        player1.addTCCard(new TrainCarCard("GREEN"));
+        player1.addTCCard(new TrainCarCard("BLUE"));
+        player1.addTCCard(new TrainCarCard("PINK"));
+
+        player2.addTCCard(new TrainCarCard("GREEN"));
+        player2.addTCCard(new TrainCarCard("RED"));
+        player2.addTCCard(new TrainCarCard("RED"));
+        player2.addTCCard(new TrainCarCard("PINK"));
+        player2.addTCCard(new TrainCarCard("GREEN"));
+        player2.addTCCard(new TrainCarCard("GREEN"));
+
+        playerHand.clear();
+        builder.setLength(0);
+        for(int i = 0; i < player1.getTcHand().size(); i++) {
+            builder.append(player1.getTcHand().get(i).getColor() + " ");
+        }
+        playerHand.setText(builder.toString());
+        player.setText("Current Player:" + currentPlayer.getColor());
     }
     @FXML
     void buttonPressed(ActionEvent event) {
+        Button pressed = (Button)event.getSource();
+        ArrayList route = new ArrayList<>();
+        List<Field> members = new ArrayList<>(Arrays.asList(getClass().getDeclaredFields()));
+        if ( pressed.equals(route) ) {
+            if ( gameLogic.isValidMove(currentPlayer, board, city1, city2) ){
+                route = board.getKey(city1, city2);
+                for(int i = 0; i < routes.get(route).size(); i++){
+                    routes.get(route).get(i).setStroke(currentPlayer.getPlayerColor());
+                }
 
+            } else {
+                enableRadioButtons();
+            }
+            currentPlayer = gameLogic.getCurrentPlayer(currentPlayer, player1, player2);
+            //Showing the hand of the current player after the previous player had drawn a card
+            playerHand.clear();
+            builder.setLength(0);
+            for(int i = 0; i < currentPlayer.getTcHand().size(); i++) {
+                builder.append(currentPlayer.getTcHand().get(i).getColor() + " ");
+            }
+            playerHand.setText(builder.toString());
+            player.setText("Current Player:" + currentPlayer.getColor());
+
+        } else if ( pressed.equals(trainCard) ) {
+            currentPlayer.addTCCard(board.getTCCard());
+
+            //After claiming a route, we switch players now
+            currentPlayer = gameLogic.getCurrentPlayer(currentPlayer, player1, player2);
+            //Showing the hand of the current player after the previous player had drawn a card
+            playerHand.clear();
+            builder.setLength(0);
+            for(int i = 0; i < currentPlayer.getTcHand().size(); i++) {
+                builder.append(currentPlayer.getTcHand().get(i).getColor() + " ");
+            }
+            playerHand.setText(builder.toString());
+            player.setText("Current Player:" + currentPlayer.getColor());
+
+        } else if ( pressed.equals(destinationCard) ) {
+            currentPlayer.addTCCard(board.getDCCard());
+
+            //After drawing a card, we switch players now
+            currentPlayer = gameLogic.getCurrentPlayer(currentPlayer, player1, player2);
+
+            //Showing the hand of the current player after the previous player had drawn a card
+            playerHand.clear();
+            builder.setLength(0);
+            for(int i = 0; i < currentPlayer.getTcHand().size(); i++) {
+                builder.append(currentPlayer.getTcHand().get(i).getColor() + " ");
+            }
+            playerHand.setText(builder.toString());
+            player.setText("Current Player:" + currentPlayer.getColor());
+        } else if ( pressed.equals(quitButton) ) {
+            System.exit(0);
+        }
     }
 
     @FXML
     void pressed(ActionEvent event) {
         RadioButton button = (RadioButton)event.getSource();
+
         if ( city1.isEmpty() || city2.isEmpty() ) {
             if ( city1.isEmpty() ) {
                city1 = button.getId();
-               System.out.println(city1);
             } else {
-                city2 = button.getId();
-                System.out.println(city2);
+               city2 = button.getId();
             }
         } else {
             for(String key : destinations.keySet()) {
-                System.out.println(key);
+                if (!key.equals(city1) ) {
+                    if ( !key.equals(city2) ) {
+                        destinations.get(key).setDisable(true);
+                    }
+                }
+            }
+        }
+    }
+
+    private void enableRadioButtons(){
+        if( radioButtonsDisabled ) {
+            for(String key : destinations.keySet()) {
+                    destinations.get(key).setDisable(false);
             }
         }
     }

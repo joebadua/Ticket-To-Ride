@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 public class TickeToRide extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //Parent root = FXMLLoader.load(getClass().getResource("/View/TicketToRideUI.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("/View/TicketToRide2.fxml"));
         Scene scene = new Scene(root);
 

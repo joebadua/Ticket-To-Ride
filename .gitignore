@@ -1,6 +1,11 @@
 master
 .idea
+.DS_Store
 Ticket-To-Ride2.0.iml
 Ticket-To-Ride.iml
+.todos.json
 out
 /bin/
+src/ticketToRide/View/TicketToRide2.0.fxml
+src/ticketToRide/View/TicketToRide2.5.fxml
+src/ticketToRide/View/imgs/Ticket-To-Ride2.0.jpg

@@ -1,6 +1,0 @@
-SD DC 15
-LA NY 8
-SF DC 10
-LV DC 9
-NY LA 6
-SF SD 8

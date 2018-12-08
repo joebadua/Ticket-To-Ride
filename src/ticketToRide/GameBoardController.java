@@ -3,8 +3,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Sphere;
 
@@ -168,8 +170,6 @@ public class GameBoardController {
                         city2 = LV.getText();
                     }
                 }
-                System.out.println(city1);
-                System.out.println(city2);
             }
         }
 
@@ -180,7 +180,6 @@ public class GameBoardController {
         if (pressed.equals(route)) {
             if (gameLogic.isValidMove(currentPlayer, board, city1, city2)) {
 
-                gameLogic.discPlayerHand(currentPlayer, board, city1, city2);
                 if ((city1.equals("SF") && city2.equals("LA")) || ((city1.equals("LA") && city2.equals("SF")))) {
                     if (!routeClaimed1) {
                         routeClaimed1 = true;

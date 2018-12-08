@@ -200,7 +200,14 @@
                   <Rectangle fx:id="ErieToYoungstownYellow4" arcHeight="5.0" arcWidth="5.0" fill="#fff41f" height="40.0" layoutX="76.0" layoutY="329.0" rotate="27.0" stroke="BLACK" strokeType="INSIDE" width="15.0" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="798.0" prefWidth="215.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="798.0" prefWidth="215.0">
+               <children>
+                  <ImageView fitHeight="800.0" fitWidth="300.0" layoutX="-4.0" layoutY="1.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@imgs/logo.jpg" />
+                     </image>
+                  </ImageView>
+               </children></AnchorPane>
         </items>
       </SplitPane>
    </center>

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Iterator;
@@ -10,6 +11,7 @@ public class GameLogic {
 	private Player player1, player2;
 	private GameBoard board;
 	private Deck discardPile = new Deck();
+	List<TrainCarCard> discards = new ArrayList<>();
 
 	public GameLogic() {
 		board = new GameBoard();
@@ -94,32 +96,53 @@ public class GameLogic {
      */
 	public boolean isValidMove(Player player, GameBoard routes, String city1, String city2) {
 
-		int num_of_cards = 0;
+		int color1= 0;
+		int color2= 0;
 		Route route = routes.getRoute(city1, city2);
 
 		List<TrainCarCard> player_hand = player.getTcHand();
 
-		for(int i = 0; i < player_hand.size(); i++) {
-            if (player_hand.get(i).getColor().equals(route.getRouteColor())) {
-                num_of_cards++;
-				if ( num_of_cards == route.getRouteLength() ) {
-					return true;
+		if ( route.getRouteColor2() != null ) {
+			for (int i = 0; i < player_hand.size(); i++) {
+				if (player_hand.get(i).getColor().equals(route.getRouteColor1())) {
+					color1++;
+					if (color1 == route.getRouteLength()) {
+						return true;
+					}
+				} else if (player_hand.get(i).getColor().equals(route.getRouteColor2())) {
+					color2++;
+					if (color2 == route.getRouteLength()) {
+						return true;
+					}
 				}
-                discardPile.discard(player_hand.get(i));
-            }
-        }
+			}
+		} else {
+			for (int i = 0; i < player_hand.size(); i++) {
+				if (player_hand.get(i).getColor().equals(route.getRouteColor1())) {
+					color1++;
+					if (color1 == route.getRouteLength()) {
+						return true;
+					}
+				}
+			}
+		}
 		return false;
     }
 
-	public void discPlayerHand(Player player, GameBoard routes, String city1, String city2) {
-
+	public void discardPlayerHand(Player player, GameBoard routes, String city1, String city2) {
 		Route route = routes.getRoute(city1, city2);
 		List<TrainCarCard> player_hand = player.getTcHand();
+		int removedCards = 0;
 
 		for(Iterator<TrainCarCard> i = player_hand.iterator(); i.hasNext(); ) {
 			TrainCarCard a = i.next();
-			if(a.getColor().equals(route.getRouteColor()))
+			if( a.getColor().equals(route.getRouteColor1()) && removedCards < route.getRouteLength() ) {
+				removedCards++;
 				i.remove();
+			} else if ( a.getColor().equals(route.getRouteColor2()) && removedCards < route.getRouteLength() ) {
+				removedCards++;
+				i.remove();
+			}
 		}
 	}
 
@@ -131,6 +154,11 @@ public class GameLogic {
 	        currentPlayer = p1;
         }
 		return  currentPlayer;
+	}
+
+	public void addToDiscardPile(Player player, GameBoard routes, String city1, String city2){
+	    Route route = routes.getRoute(city1,city2);
+
 	}
 
 
